@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "FindTask";
+}
+
+@model List<Tasks>
+
+<h1>List of Tasks</h1>
+<div class="row">
+
+    @foreach (Tasks tasks in Model)
+    {
+        <div class="col-md-4 table">
+            <table>
+                <tr>
+                    <th>Task Description</th>
+                    <td>@tasks.TaskDescription</td>
+                </tr>
+                <tr>
+                    <th>Due Date</th>
+                    <td>@tasks.DueDate.ToShortDateString()</td>
+                </tr>
+                <tr>
+                    <th>Completed?</th>
+                    <td>
+                        @{
+                            if (tasks.Completed)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+                        }
+                    </td>
+                    </table>
+
+        </div>
+    }
+
+
